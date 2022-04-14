@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fire_starter/src/core/l10n/locale_provider.dart';
+import 'package:flutter_fire_starter/src/routes/RoutePaths.dart';
 import 'package:flutter_fire_starter/src/view_models/sample_view_model.dart';
 import 'package:flutter_fire_starter/src/views/sample_form_view.dart';
 import 'package:flutter_fire_starter/src/views/sample_list_refresh.dart';
@@ -8,9 +9,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class SampleView extends StatefulWidget {
-  const SampleView({Key? key, required this.title}) : super(key: key);
+  const SampleView({
+    Key? key,
+  }) : super(key: key);
 
-  final String title;
+  final String title = 'Flutter Demo Home Page';
 
   @override
   State<SampleView> createState() => _SamplePageState();
@@ -107,20 +110,26 @@ class _SamplePageState extends State<SampleView> {
                   );
                 },
               ),
+              // ElevatedButton(
+              //   child: Text(AppLocalizations.of(context)!.gotoList,
+              //       style: Theme.of(context).textTheme.bodyText2),
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) {
+              //           return SampleRefreshListView(
+              //               title: AppLocalizations.of(context)!
+              //                   .sampleRefreshList);
+              //         },
+              //       ),
+              //     );
+              //   },
+              // ),
               ElevatedButton(
-                child: Text(AppLocalizations.of(context)!.gotoList,
-                    style: Theme.of(context).textTheme.bodyText2),
+                child: Text('Ex Route'),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SampleRefreshListView(
-                            title: AppLocalizations.of(context)!
-                                .sampleRefreshList);
-                      },
-                    ),
-                  );
+                  Navigator.of(context).pushNamed(RoutePaths.ExampleScreen);
                 },
               ),
             ],
